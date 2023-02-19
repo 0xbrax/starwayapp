@@ -346,9 +346,11 @@ footer a {
     }
     #info .col-P2 > div {
         justify-content: center;
-        /*margin-right: calc(75px / 2);*/
     }
     #info .col-P1 {
         margin-top: 20px;
+    }
+    #info .col-P1 > div {
+        text-align: center;
     }
 }
