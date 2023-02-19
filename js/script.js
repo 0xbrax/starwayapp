@@ -16,7 +16,6 @@ const zodiacSign = [
 const signCardContainer = document.getElementById('sign-card-container');
 
 for (let i = 0; i < zodiacSign.length; i++) {
-    console.log(i)
     const signCard = document.createElement('div');
     signCard.classList.add('sign-card', 'd-flex', 'column', 'just-ctr', 'align-ctr', 'rounded');
 
@@ -40,6 +39,4 @@ for (let i = 0; i < zodiacSign.length; i++) {
     signCard.append(signImg, signTxt, borderTop, borderBottom);
 
     signCardContainer.append(signCard);
-
-    console.log(signCard)
 }

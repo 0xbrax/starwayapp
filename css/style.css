@@ -8,6 +8,14 @@
 img {
     display: block;
 }
+a:link {text-decoration: none;}
+a:visited {text-decoration: none;}
+a:active {text-decoration: none;}
+a:hover {text-decoration: none;}
+ul {
+    list-style: none;
+}
+
 :root {
     --main-purple-light: #fb4bc9;
     --main-purple-dark: #3d135f;
@@ -86,6 +94,10 @@ img {
     padding-top: 10px;
     padding-bottom: 10px;
 }
+.py-20 {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
 .py-40 {
     padding-top: 40px;
     padding-bottom: 40px;
@@ -145,9 +157,7 @@ img {
     width: 30%;
 }
 
-/************************************************
-    SITE SECTIONS
- ************************************************/
+/********/
 
 header {
     background-color: var(--main-purple-dark);
@@ -171,10 +181,25 @@ nav > div {
 #hero img {
     width: 100%;
 }
+.download-btn {
+    padding: 15px 20px;
+    background-color: var(--main-purple-light);
+    color: black;
+
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
+.download-btn:hover {
+    background-color: var(--main-purple-dark);
+    color: white;
+}
 
 #info {
     background-color: var(--main-purple-light);
     color: white;
+}
+#info img {
+    width: 50%;
+    margin-left: calc(-75px / 2);
 }
 
 
@@ -190,7 +215,7 @@ nav > div {
     position: relative;
     overflow: hidden;
 
-    transition: background-color 0.5s ease;
+    /*transition: background-color 0.5s ease;*/
 }
 .sign-img {
     height: 50%;
@@ -201,9 +226,9 @@ nav > div {
     max-height: 50px;
     max-width: 50px;
 }
-.sign-card-img {
+/*.sign-card-img {
     transition: filter 0.5s ease;
-}
+}*/
 .sign-card-txt {
     background-color: var(--main-purple-light);
     padding: 0 5px;
@@ -212,7 +237,7 @@ nav > div {
     position: relative;
     z-index: 11;
 
-    transition: background-color 0.5s ease, color 0.5s ease;
+    /*transition: background-color 0.5s ease, color 0.5s ease;*/
 }
 
 .sign-card-border-top {
@@ -244,21 +269,40 @@ nav > div {
     border-right: 2px solid white;
 }
 
+/*.sign-card:hover {
+    background-color: var(--main-purple-dark);
+}
+.sign-card:hover .sign-card-img {
+    filter: invert(1);
+}
+.sign-card:hover .sign-card-txt {
+    background-color: var(--main-purple-dark);
+    color: white;
+}*/
+
 
 
 #bonus {
     background-color: var(--sec-blue-light);
 }
+#bonus > .container div:nth-child(2) {
+    display: none;
+}
 
 footer {
-    background-color: var(--sec-blue-dark);
+    height: 70px;
+    background-color: var(--main-purple-dark);
+    color: white;
+}
+footer a {
+    color: white;
 }
 
 
 
 /************************************************
-    SOLUZIONE RESPONSIVE
- ************************************************/
+    MEDIA QUERY
+************************************************/
 
 @media screen and (max-width: 1140px) {
     .container {
@@ -270,6 +314,15 @@ footer {
     .container {
         width: 100%;
     }
+    .sign-card {
+        width: calc((100% / 3) - 10px);
+    }
+    #bonus > .container div:nth-child(1) {
+        display: none;
+    }
+    #bonus > .container div:nth-child(2) {
+        display: block;
+    }
 }
 
 @media screen and (max-width: 480px) {
@@ -280,5 +333,18 @@ footer {
     }
     .row {
         flex-wrap: wrap;
+    }
+    #hero .col-P2 {
+        margin-top: 40px;
+    }
+    #hero .col-P1 > div > div {
+        text-align: center;
+    }
+    #info .col-P2 > div {
+        justify-content: center;
+        margin-right: calc(75px / 2);
+    }
+    #info .col-P1 {
+        margin-top: 20px;
     }
 }
