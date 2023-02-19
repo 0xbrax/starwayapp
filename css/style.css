@@ -125,6 +125,10 @@ ul {
     text-transform: capitalize;
 }
 
+.fs-30 {
+    font-size: 22px;
+}
+
 .rounded {
     border-radius: 20px;
 }
@@ -342,7 +346,7 @@ footer a {
     }
     #info .col-P2 > div {
         justify-content: center;
-        margin-right: calc(75px / 2);
+        /*margin-right: calc(75px / 2);*/
     }
     #info .col-P1 {
         margin-top: 20px;
