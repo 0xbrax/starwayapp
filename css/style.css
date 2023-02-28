@@ -25,6 +25,9 @@ ul {
 
 
 
+.inline-block {
+    display: inline-block;
+}
 .d-flex {
     display: flex;
 }
@@ -84,6 +87,9 @@ ul {
 .mx-20 {
     margin-left: 20px;
     margin-right: 20px;
+}
+.ml-10 {
+    margin-left: 10px;
 }
 
 .py-5 {
@@ -179,10 +185,12 @@ nav > div {
     padding-right: 10px;
 }
 
+
+
 #hero {
     background-color: var(--sec-blue-light);
 }
-#hero img {
+#logo-starway {
     width: 100%;
 }
 .download-btn {
@@ -196,6 +204,11 @@ nav > div {
     background-color: var(--main-purple-dark);
     color: white;
 }
+#logo-google-play {
+    height: 30px;
+}
+
+
 
 #info {
     background-color: var(--main-purple-light);
@@ -208,18 +221,22 @@ nav > div {
 
 
 
+#sign {
+    position: relative;
+    overflow: hidden;
+
+    height: calc(150px + 40px + 40px);
+}
 .sign-card {
-    max-width: 150px;
-    width: calc((100% / 6) - 10px);
+    width: 150px;
     aspect-ratio: 1 / 1;
     background-color: var(--main-purple-light);
-    margin: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
     padding: 10px;
 
     position: relative;
     overflow: hidden;
-
-    /*transition: background-color 0.5s ease;*/
 }
 .sign-img {
     height: 50%;
@@ -230,9 +247,6 @@ nav > div {
     max-height: 50px;
     max-width: 50px;
 }
-/*.sign-card-img {
-    transition: filter 0.5s ease;
-}*/
 .sign-card-txt {
     background-color: var(--main-purple-light);
     padding: 0 5px;
@@ -240,8 +254,6 @@ nav > div {
 
     position: relative;
     z-index: 11;
-
-    /*transition: background-color 0.5s ease, color 0.5s ease;*/
 }
 
 .sign-card-border-top {
@@ -273,17 +285,6 @@ nav > div {
     border-right: 2px solid white;
 }
 
-/*.sign-card:hover {
-    background-color: var(--main-purple-dark);
-}
-.sign-card:hover .sign-card-img {
-    filter: invert(1);
-}
-.sign-card:hover .sign-card-txt {
-    background-color: var(--main-purple-dark);
-    color: white;
-}*/
-
 
 
 #bonus {
@@ -312,14 +313,24 @@ footer a {
     .container {
         width: 100%;
     }
+    #info img {
+        margin-left: calc(-75px / 2);
+    }
 }
 
 @media screen and (max-width: 768px) {
     .container {
         width: 100%;
     }
+    #info img {
+        width: 100%;
+        margin-left: calc(-75px / 1.5);
+    }
+    #sign {
+        height: calc(100px + 40px + 40px);
+    }
     .sign-card {
-        width: calc((100% / 3) - 10px);
+        width: 100px;
     }
     #bonus > .container div:nth-child(1) {
         display: none;
@@ -341,11 +352,18 @@ footer a {
     #hero .col-P2 {
         margin-top: 40px;
     }
-    #hero .col-P1 > div > div {
+    #hero .col-P1 > div > div > div:first-child {
         text-align: center;
+    }
+    #hero .col-P1 > div > div > div:last-child {
+        justify-content: center;
     }
     #info .col-P2 > div {
         justify-content: center;
+    }
+    #info img {
+        width: calc(100% / 3);
+        margin-left: calc(-75px / 4);
     }
     #info .col-P1 {
         margin-top: 20px;

@@ -14,20 +14,42 @@ const zodiacSign = [
 ]
 
 const signCardContainer = document.getElementById('sign-card-container');
+let containerInitWidth = 0;
+const scrollSpeed = 1;
+let scrollPos = 0;
+let mode = null;
+
+
 
 for (let i = 0; i < zodiacSign.length; i++) {
+    createSignCard(i);
+}
+
+containerInitWidth = signCardContainer.offsetWidth;
+
+animateScroll();
+
+
+
+function createSignCard(index, mode = null) {
+    let scrollClassIndex = index;
+
+    if (mode === 'repeat') {
+        scrollClassIndex = index + 12;
+    }
+
     const signCard = document.createElement('div');
-    signCard.classList.add('sign-card', 'd-flex', 'column', 'just-ctr', 'align-ctr', 'rounded');
+    signCard.classList.add('sign-card', 'd-flex', 'column', 'just-ctr', 'align-ctr', 'rounded', `SCROLL-EL_${scrollClassIndex}`);
 
     const signImg = document.createElement('div');
     signImg.classList.add('sign-img', 'd-flex', 'align-ctr');
     const img = document.createElement('img');
-    img.src = `../assets/${i + 1}-${zodiacSign[i]}.svg`;
+    img.src = `../assets/${index + 1}-${zodiacSign[index]}.svg`;
     img.classList.add('sign-card-img');
     signImg.append(img);
 
     const signTxt = document.createElement('div');
-    signTxt.innerHTML = zodiacSign[i];
+    signTxt.innerHTML = zodiacSign[index];
     signTxt.classList.add('sign-card-txt', 'text-cap', 'rounded');
 
     const borderTop = document.createElement('div');
@@ -39,4 +61,31 @@ for (let i = 0; i < zodiacSign.length; i++) {
     signCard.append(signImg, signTxt, borderTop, borderBottom);
 
     signCardContainer.append(signCard);
+}
+
+function animateScroll() {
+    scrollPos += scrollSpeed;
+    signCardContainer.style.transform = `translateX(-${scrollPos}px)`;
+
+    if (scrollPos >= (signCardContainer.offsetWidth - window.screen.width)) {
+        for (let i = 0; i < zodiacSign.length; i++) {
+            if (mode === 'repeat') {
+                createSignCard(i, mode);
+                mode = null;
+            } else {
+                createSignCard(i);
+            }
+        }
+    }
+
+    if (scrollPos >= containerInitWidth) {
+        for (let i = 0; i < zodiacSign.length; i++) {
+            const scrollSign = document.querySelector(`.SCROLL-EL_${i}`);
+            scrollSign.remove();
+        }
+
+        scrollPos = 0;
+    }
+
+    window.requestAnimationFrame(animateScroll);
 }
