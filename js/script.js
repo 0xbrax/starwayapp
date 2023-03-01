@@ -15,9 +15,19 @@ const zodiacSign = [
 
 const signCardContainer = document.getElementById('sign-card-container');
 let containerInitWidth = 0;
-const scrollSpeed = 1;
+let scrollSpeed = null;
 let scrollPos = 0;
 let mode = null;
+
+if (window.screen.width > 1140) {
+    scrollSpeed = 0.85;
+} else if (window.screen.width > 768) {
+    scrollSpeed = 0.7;
+} else if (window.screen.width > 480) {
+    scrollSpeed = 0.55;
+} else {
+    scrollSpeed = 0.4;
+}
 
 
 
